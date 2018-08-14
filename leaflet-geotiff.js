@@ -81,7 +81,7 @@ L.LeafletGeotiff = L.ImageOverlay.extend({
         request.send();
     },
     _parseTIFF: function (arrayBuffer) {
-        this.tiff = GeoTIFF.fromSource(arrayBuffer);
+        this.tiff = await GeoTIFF.fromArrayBuffer(arrayBuffer);
         this.setBand(this.options.band);
   
         if (!this.options.bounds) {
